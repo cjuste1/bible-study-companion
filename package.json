@@ -1,0 +1,10 @@
+{
+    "name": "bible-study-companion",
+    "version": "1.0.0",
+    "description": "Your personal Bible study companion",
+    "type": "module",
+    "scripts": {
+      "dev": "vercel dev",
+      "build": "echo 'No build needed'"
+    }
+  }
