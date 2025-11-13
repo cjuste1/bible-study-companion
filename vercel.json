@@ -1,4 +1,6 @@
 {
+    "buildCommand": "echo 'No build needed'",
+    "outputDirectory": ".",
     "functions": {
       "api/**/*.js": {
         "memory": 1024,
@@ -12,3 +14,4 @@
       }
     ]
   }
+  
