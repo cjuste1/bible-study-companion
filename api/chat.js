@@ -30,12 +30,21 @@ export default async function handler(req, res) {
         const data = await response.json();
         
         if (!response.ok) {
+            console.error('API Error:', data);
             throw new Error(data.error?.message || 'API request failed');
         }
 
-        res.status(200).json({ response: data.content[0].text });
+        // Extract the text from the response
+        const responseText = data.content && data.content[0] && data.content[0].text 
+            ? data.content[0].text 
+            : 'I apologize, but I am having trouble responding right now. Please try again.';
+
+        res.status(200).json({ response: responseText });
     } catch (error) {
         console.error('API Error:', error);
-        res.status(500).json({ error: error.message });
+        res.status(500).json({ 
+            error: error.message,
+            response: 'I apologize, but I am having trouble connecting right now. Please try again in a moment.'
+        });
     }
 }
